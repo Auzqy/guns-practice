@@ -1,6 +1,9 @@
 package com.stylefeng.guns.modular.housemanage.controller;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.mapper.Wrapper;
 import com.stylefeng.guns.core.base.controller.BaseController;
+import com.stylefeng.guns.core.util.ToolUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -56,11 +59,29 @@ public class HouseController extends BaseController {
 
     /**
      * 获取房屋管理列表
+     *
+     * description:  这里我们调整一下搜索的逻辑
+     *  如果有值，默认按业主名称搜索
+     *  如果没有值，那么搜索全部
+     *  （那个名称可以通过js去修改）
+     *
+     * createTime: 2020/2/10 11:01 下午
+     * @author au
      */
     @RequestMapping(value = "/list")
     @ResponseBody
     public Object list(String condition) {
-        return houseService.selectList(null);
+        // 如果没有值，那么搜索全部
+        if (ToolUtil.isEmpty(condition)) {
+            return houseService.selectList(null);
+        }
+        // 如果有值，默认按业主名称搜索
+        else {
+            EntityWrapper<House> entityWrapper = new EntityWrapper<>();
+            Wrapper<House> wrapper = entityWrapper
+                    .like("house_user", condition);
+            return houseService.selectList(wrapper);
+        }
     }
 
     /**

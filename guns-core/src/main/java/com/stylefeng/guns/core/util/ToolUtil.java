@@ -210,7 +210,7 @@ public class ToolUtil {
     /**
      * 对象是否为空
      *
-     * @param obj String,List,Map,Object[],int[],long[]
+     * @param o String,List,Map,Object[],int[],long[]
      * @return
      */
     @SuppressWarnings("rawtypes")
@@ -219,7 +219,7 @@ public class ToolUtil {
             return true;
         }
         if (o instanceof String) {
-            if (o.toString().trim().equals("")) {
+            if ("".equals(o.toString().trim())) {
                 return true;
             }
         } else if (o instanceof List) {
