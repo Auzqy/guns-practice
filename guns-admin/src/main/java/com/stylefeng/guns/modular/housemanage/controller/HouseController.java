@@ -90,6 +90,7 @@ public class HouseController extends BaseController {
     @RequestMapping(value = "/add")
     @ResponseBody
     public Object add(House house) {
+        // todo 这里还有添加一些字段的校验，也可以使用 Bean Validation
         houseService.insert(house);
         return SUCCESS_TIP;
     }
