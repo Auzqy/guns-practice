@@ -16,4 +16,6 @@
 ### Guns 整合
 
 > 运行 guns-admin GunsApplication
+> 后台测试用户: admin 密码: 111111
+
 
