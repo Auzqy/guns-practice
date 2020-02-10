@@ -36,3 +36,4 @@ eg: guns-admin/sql/au_tbl_house.sql
 ## au 认为可以优化的地方
 
 ### todo 1. 为每一个list添加查询条件，放到list列表旁边，弹出框的形式
+### todo 2. 把生成的模版改成 lombok
