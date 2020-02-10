@@ -1,3 +1,10 @@
+# 说明
+> 本项目是 fork 自 [https://gitee.com/stylefeng/guns](https://gitee.com/stylefeng/guns) 
+> 而不是 [https://github.com/stylefeng/Guns](https://github.com/stylefeng/Guns) ，
+> 他们的作者名称是同一个，但是看更新时间和内容好像 gitee 上更新/更全一些，于是本人选择 gitee。
+> 我在 [gitee 上也做了 fork](https://gitee.com/Aushen/guns/tree/au-custom-based-v4.2)
+> 指在某些特定分支的内容做一些学习和定制化的修改，github 上算是一个备份吧。
+
 # Guns V4.2
 
 ## 介绍
