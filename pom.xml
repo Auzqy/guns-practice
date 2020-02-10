@@ -27,7 +27,7 @@
         <java.version>1.8</java.version>
         <guns.version>1.0.0</guns.version>
         <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
-        <shiro.version>1.4.0</shiro.version>
+        <shiro.version>1.4.2</shiro.version>
         <mybatis-plus.version>2.3</mybatis-plus.version>
         <fastjson.version>1.2.47</fastjson.version>
         <velocity.version>1.7</velocity.version>
@@ -41,7 +41,7 @@
         <ehcache.core.version>2.6.11</ehcache.core.version>
         <mysql-connector-java.version>8.0.11</mysql-connector-java.version>
         <jwt.version>0.9.0</jwt.version>
-        <hutool.version>4.1.1</hutool.version>
+        <hutool.version>4.1.12</hutool.version>
     </properties>
 
     <dependencyManagement>
@@ -165,6 +165,7 @@
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
             </dependency>
+
         </dependencies>
     </dependencyManagement>
 
