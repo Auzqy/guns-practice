@@ -4,7 +4,8 @@
 
 ### Guns 导入
 
-> guns-parent, maven reimport
+> guns-parent
+> maven reimport
 
 ### Guns 配置
 
