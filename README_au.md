@@ -33,3 +33,6 @@ eg: guns-admin/sql/au_tbl_house.sql
 3.4 编辑对应的页面，以满足需要的显示需求
 
 
+## au 认为可以优化的地方
+
+### todo 1. 为每一个list添加查询条件，放到list列表旁边，弹出框的形式
