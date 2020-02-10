@@ -101,6 +101,7 @@ public class HouseController extends BaseController {
     @RequestMapping(value = "/delete")
     @ResponseBody
     public Object delete(@RequestParam Integer houseId) {
+        // todo 这个删除是真删，有需求的话调整一下
         houseService.deleteById(houseId);
         return SUCCESS_TIP;
     }
