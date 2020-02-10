@@ -14,11 +14,11 @@ var House = {
 House.initColumn = function () {
     return [
         {field: 'selectItem', radio: true},
-            {title: '', field: 'id', visible: true, align: 'center', valign: 'middle'},
-            {title: '', field: 'houseUser', visible: true, align: 'center', valign: 'middle'},
-            {title: '', field: 'houseAddress', visible: true, align: 'center', valign: 'middle'},
-            {title: '', field: 'houseTime', visible: true, align: 'center', valign: 'middle'},
-            {title: '', field: 'houseDesc', visible: true, align: 'center', valign: 'middle'}
+            {title: '房屋编号', field: 'id', visible: true, align: 'center', valign: 'middle'},
+            {title: '业主名称', field: 'houseUser', visible: true, align: 'center', valign: 'middle'},
+            {title: '房屋地址', field: 'houseAddress', visible: true, align: 'center', valign: 'middle'},
+            {title: '房屋交付时间', field: 'houseTime', visible: true, align: 'center', valign: 'middle'},
+            {title: '房屋描述', field: 'houseDesc', visible: true, align: 'center', valign: 'middle'}
     ];
 };
 
