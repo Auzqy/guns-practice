@@ -2,8 +2,15 @@ package com.stylefeng.guns.modular.housemanage.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.mapper.Wrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.stylefeng.guns.core.base.controller.BaseController;
+import com.stylefeng.guns.core.common.constant.factory.PageFactory;
+import com.stylefeng.guns.core.common.constant.state.BizLogType;
+import com.stylefeng.guns.core.page.PageInfoBT;
 import com.stylefeng.guns.core.util.ToolUtil;
+import com.stylefeng.guns.modular.system.model.OperationLog;
+import com.stylefeng.guns.modular.system.warpper.LogWarpper;
+import org.omg.PortableInterceptor.HOLDING;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,6 +21,9 @@ import com.stylefeng.guns.core.log.LogObjectHolder;
 import org.springframework.web.bind.annotation.RequestParam;
 import com.stylefeng.guns.modular.system.model.House;
 import com.stylefeng.guns.modular.housemanage.service.IHouseService;
+
+import java.util.List;
+import java.util.Map;
 
 /**
  * 房屋管理控制器
@@ -73,14 +83,36 @@ public class HouseController extends BaseController {
     public Object list(String condition) {
         // 如果没有值，那么搜索全部
         if (ToolUtil.isEmpty(condition)) {
+            // client 分页
             return houseService.selectList(null);
+
+            // server 分页 （下面两种均可，前后端分页方式对应好就行）
+//            Page<House> page = new PageFactory<House>().defaultPage();
+//            page = houseService.selectPage(page);
+//            return new PageInfoBT<>(page);
+
+
+//            Page<Map<String, Object>> mapPage =
+//                    houseService.selectMapsPage(page, null);
+//            return super.packForBT(mapPage);
         }
         // 如果有值，默认按业主名称搜索
         else {
             EntityWrapper<House> entityWrapper = new EntityWrapper<>();
             Wrapper<House> wrapper = entityWrapper
                     .like("house_user", condition);
-            return houseService.selectList(wrapper);
+            // client 分页
+//            return houseService.selectList(wrapper);
+
+            // server 分页 （下面两种均可，前后端分页方式对应好就行）
+            Page<House> page = new PageFactory<House>().defaultPage();
+            page = houseService.selectPage(page,wrapper);
+            return new PageInfoBT<>(page);
+
+
+//            Page<Map<String, Object>> mapPage =
+//                    houseService.selectMapsPage(page, wrapper);
+//            return super.packForBT(mapPage);
         }
     }
 

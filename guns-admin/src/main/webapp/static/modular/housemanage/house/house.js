@@ -96,6 +96,10 @@ House.search = function () {
 $(function () {
     var defaultColunms = House.initColumn();
     var table = new BSTable(House.id, "/house/list", defaultColunms);
+    // 逻辑分页
     table.setPaginationType("client");
+    // 物理分页
+    // table.setPaginationType("server");
+
     House.table = table.init();
 });
