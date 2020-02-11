@@ -23,8 +23,11 @@ import org.springframework.stereotype.Controller;
 @Slf4j
 public class HouseController {
 
-    @Autowired
-    private IHouseService houseService;
+    private final IHouseService houseService;
+
+    public HouseController(IHouseService houseService) {
+        this.houseService = houseService;
+    }
 
     @RequestMapping("/hello")
     public House hello(@RequestBody House house) {
