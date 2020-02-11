@@ -84,12 +84,12 @@ public class HouseController extends BaseController {
         // 如果没有值，那么搜索全部
         if (ToolUtil.isEmpty(condition)) {
             // client 分页
-            return houseService.selectList(null);
+//            return houseService.selectList(null);
 
             // server 分页 （下面两种均可，前后端分页方式对应好就行）
-//            Page<House> page = new PageFactory<House>().defaultPage();
-//            page = houseService.selectPage(page);
-//            return new PageInfoBT<>(page);
+            Page<House> page = new PageFactory<House>().defaultPage();
+            page = houseService.selectPage(page);
+            return new PageInfoBT<>(page);
 
 
 //            Page<Map<String, Object>> mapPage =
