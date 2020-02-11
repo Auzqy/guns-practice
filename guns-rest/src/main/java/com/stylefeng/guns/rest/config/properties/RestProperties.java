@@ -1,5 +1,6 @@
 package com.stylefeng.guns.rest.config.properties;
 
+import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
@@ -11,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ConfigurationProperties(prefix = RestProperties.REST_PREFIX)
+@Data
 public class RestProperties {
 
     public static final String REST_PREFIX = "rest";
@@ -18,20 +20,4 @@ public class RestProperties {
     private boolean authOpen = true;
 
     private boolean signOpen = true;
-
-    public boolean isAuthOpen() {
-        return authOpen;
-    }
-
-    public void setAuthOpen(boolean authOpen) {
-        this.authOpen = authOpen;
-    }
-
-    public boolean isSignOpen() {
-        return signOpen;
-    }
-
-    public void setSignOpen(boolean signOpen) {
-        this.signOpen = signOpen;
-    }
 }

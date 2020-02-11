@@ -50,6 +50,12 @@
             <artifactId>log4j-core</artifactId>
         </dependency>
 
+        <!-- au added -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
