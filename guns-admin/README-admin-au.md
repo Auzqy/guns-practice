@@ -1,6 +1,6 @@
 [TOC]
 
-# Guns V4.2 —— by au
+# Guns admin V4.2 —— by au
 
 ## 导入、配置、整合
 
