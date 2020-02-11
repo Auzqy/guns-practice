@@ -1,5 +1,8 @@
 package com.stylefeng.guns.rest.modular.auth.controller.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+
 import java.io.Serializable;
 
 /**
@@ -8,6 +11,8 @@ import java.io.Serializable;
  * @author fengshuonan
  * @Date 2017/8/24 13:58
  */
+@Getter
+@AllArgsConstructor
 public class AuthResponse implements Serializable {
 
     private static final long serialVersionUID = 1250166508152483573L;
@@ -22,16 +27,4 @@ public class AuthResponse implements Serializable {
      */
     private final String randomKey;
 
-    public AuthResponse(String token, String randomKey) {
-        this.token = token;
-        this.randomKey = randomKey;
-    }
-
-    public String getToken() {
-        return this.token;
-    }
-
-    public String getRandomKey() {
-        return randomKey;
-    }
 }

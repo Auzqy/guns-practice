@@ -34,7 +34,11 @@ public class AuthFilter extends OncePerRequestFilter {
     private JwtProperties jwtProperties;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
+    protected void doFilterInternal(HttpServletRequest request,
+                                    HttpServletResponse response,
+                                    FilterChain chain)
+            throws IOException, ServletException {
+
         if (request.getServletPath().equals("/" + jwtProperties.getAuthPath())) {
             chain.doFilter(request, response);
             return;
@@ -48,17 +52,26 @@ public class AuthFilter extends OncePerRequestFilter {
             try {
                 boolean flag = jwtTokenUtil.isTokenExpired(authToken);
                 if (flag) {
-                    RenderUtil.renderJson(response, new ErrorTip(BizExceptionEnum.TOKEN_EXPIRED.getCode(), BizExceptionEnum.TOKEN_EXPIRED.getMessage()));
+                    RenderUtil.renderJson(response,
+                            new ErrorTip(
+                                    BizExceptionEnum.TOKEN_EXPIRED.getCode(),
+                                    BizExceptionEnum.TOKEN_EXPIRED.getMessage()));
                     return;
                 }
             } catch (JwtException e) {
                 //有异常就是token解析失败
-                RenderUtil.renderJson(response, new ErrorTip(BizExceptionEnum.TOKEN_ERROR.getCode(), BizExceptionEnum.TOKEN_ERROR.getMessage()));
+                RenderUtil.renderJson(response,
+                        new ErrorTip(
+                                BizExceptionEnum.TOKEN_ERROR.getCode(),
+                                BizExceptionEnum.TOKEN_ERROR.getMessage()));
                 return;
             }
         } else {
             //header没有带Bearer字段
-            RenderUtil.renderJson(response, new ErrorTip(BizExceptionEnum.TOKEN_ERROR.getCode(), BizExceptionEnum.TOKEN_ERROR.getMessage()));
+            RenderUtil.renderJson(response,
+                    new ErrorTip(
+                            BizExceptionEnum.TOKEN_ERROR.getCode(),
+                            BizExceptionEnum.TOKEN_ERROR.getMessage()));
             return;
         }
         chain.doFilter(request, response);
