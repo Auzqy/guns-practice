@@ -28,8 +28,9 @@ public class HouseController {
 
     @RequestMapping("/hello")
     public House hello(@RequestBody House house) {
-        log.info("house: {}",house);
-        return house;
+        House house1 = houseService.selectById(house.getId());
+        log.info("house1: {}",house1);
+        return house1;
     }
 }
 
