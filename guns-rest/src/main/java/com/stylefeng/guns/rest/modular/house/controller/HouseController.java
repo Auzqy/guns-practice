@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * <p>
@@ -18,7 +19,7 @@ import org.springframework.stereotype.Controller;
  * @author au
  * @since 2020-02-11
  */
-@Controller
+@RestController
 @RequestMapping("/house")
 @Slf4j
 public class HouseController {

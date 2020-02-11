@@ -19,6 +19,11 @@ http://localhost:8080/auth?userName=admin&password=admin
 key:    "Authorization"
 value:  "Bearer ${token}"
 
+获得加密后的请求信息（因为没有前端，自己模拟一下）
+使用 src/test/java/com/stylefeng/guns/jwt/DecryptTest.java
+将获得的结果，作为请求体发送（JSON.toJSONString(baseTransferEntity)）
+
+
 ## 添加定制模块
 
 ### 1. 新建数据库表
@@ -26,15 +31,3 @@ eg: guns-rest/db/guns_rest.sql
 
 ### 2. 代码生成 
 src/test/java/com/stylefeng/guns/generator/EntityGenerator.java
-
-### 3. 产生管理菜单目录（即系统管理->菜单管理）
-3.1 执行生成后的 guns-admin/src/main/java/House.sql
-3.2 通过（系统管理->菜单管理）配置 所需的页面层级
-3.3 通过（系统管理->角色管理）配置 可以看到该页面的角色，刷新后即可看到该页面
-3.4 编辑对应的页面，以满足需要的显示需求
-
-
-## au 认为可以优化的地方
-
-### todo 1. 为每一个list添加查询条件，放到list列表旁边，弹出框的形式
-### todo 2. 把生成的模版改成 lombok
